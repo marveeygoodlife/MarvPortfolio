@@ -20,7 +20,6 @@ const ul = document.querySelector('.nav-links');
 
         // ===== SCROLL PROGRESS BAR =====
         const scrollProgress = document.querySelector('.scroll-progress');
-
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -30,7 +29,6 @@ const ul = document.querySelector('.nav-links');
 
         // ===== NAVBAR SCROLL EFFECT =====
         const navbar = document.querySelector('.navbar');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -45,7 +43,7 @@ const ul = document.querySelector('.nav-links');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                ul.classList.remove("showNav");
+                ul.classList.remove("show-nav");
                 const targetId = link.getAttribute('href');
 
                 setTimeout(() => {
@@ -62,11 +60,6 @@ const ul = document.querySelector('.nav-links');
             });
         });
              
-       
-
-        // ===== FORM HANDLING (Handled by Formspree SDK) =====
-
-
         // ===== CTA BUTTON SCROLLS TO CONTACT =====
         document.querySelector('.cta-button').addEventListener('click', () => {
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
@@ -77,36 +70,23 @@ const ul = document.querySelector('.nav-links');
             document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ===== PROJECT LINK TRACKING =====
-        document.querySelectorAll('.project-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Add navigation logic here
-                console.log('Project clicked');
-            });
-        });
-
-        // ===== ACCESSIBILITY - KEYBOARD NAVIGATION =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                ul.classList.remove('showNav');
-            }
-        });
- 
-
-        // ===== PREFER REDUCED MOTION =====
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-            document.documentElement.style.scrollBehavior = 'auto';
-        }
-
         // ===== MOBILE MENU =====
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         if (mobileMenuToggle) {
             mobileMenuToggle.addEventListener('click', () => {
-                ul.classList.toggle('showNav');
+                ul.classList.toggle('show-nav');
             });
-        }
+};
+//==== CLOSE NAV ON CLICK OF OUTSIDE UL
+document.addEventListener("click", (e) => {
+    const navOpen = ul.classList.contains("show-nav");
+    const clickedToggle = mobileMenuToggle.contains(e.target);
+    const clickedUl = ul.contains(e.target);
+ 
+    if (navOpen && !clickedToggle && !clickedUl) {
+        ul.classList.remove("show-nav");
+    }
+});
 // ===== Show SCROLL TO TOP BUTTON =====
 const scrollBtn = document.getElementById("scrollBtn");
 
@@ -165,4 +145,17 @@ scrollBtn.addEventListener("click", () => {
 
         document.querySelectorAll('.fades:not(section)').forEach(el => {
             elementObserver.observe(el);
+        });
+
+        // ===== PREFER REDUCED MOTION =====
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            document.documentElement.style.scrollBehavior = 'auto';
+}
+        
+    // ===== ACCESSIBILITY - KEYBOARD NAVIGATION =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ul.classList.remove('show-nav');
+            }
         });

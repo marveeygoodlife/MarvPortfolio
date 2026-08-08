@@ -23,15 +23,15 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-controls">
-                <button class="theme-toggle" aria-label="Toggle theme">
+                <button type="button" class="theme-toggle" aria-label="Toggle theme">
                     <div class="theme-toggle-circle"></div>
                 </button>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button  type="button" class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <button class="cta-button">Let's Talk</button>
+                <button  type="button" class="cta-button">Let's Talk</button>
             </div>
         </div>
     </nav>
@@ -364,15 +364,21 @@
             </div>
         </div>
     </section>
-
+<div class="overlay" id="overlay">
+            <div class="overlay-content">
+                <p class="overlay-p" id="overlay-p" aria-live="polite">gnnnnnnnn</p>
+            </div>
+        </div>
     <!-- Contact Section -->
     <section class="contact fades" id="contact">
+        
         <div class="section-header">
             <h2>Let's Work Together</h2>
             <p>Have a project in mind? I'd love to hear about it. Get in touch and let's create something amazing.</p>
         </div>
         <div class="contact-wrapper">
             <div class="contact-info">
+                <!-- Item 1 -->
                 <div class="contact-item">
                     <div class="contact-icon">📧</div>
                     <div class="contact-details">
@@ -380,6 +386,7 @@
                         <a href="mailto:marveey8027@gmail.com">marveey8027@gmail.com</a>
                     </div>
                 </div>
+                <!-- Item 2 -->
                 <div class="contact-item">
                     <div class="contact-icon">💬</div>
                     <div class="contact-details">
@@ -387,6 +394,7 @@
                         <p>Available on Tiktok, LinkedIn, and other platforms</p>
                     </div>
                 </div>
+                <!-- Item 3 -->
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <div class="contact-details">
@@ -394,6 +402,7 @@
                         <p>Abuja, Nigeria - Open to remote & freelance</p>
                     </div>
                 </div>
+                <!-- Item 4 -->
                 <div class="contact-item">
                     <div class="contact-icon">🔗</div>
                     <div class="contact-details">
@@ -401,39 +410,58 @@
                         <div class="social-links">
                             <a href="#" class="social-icon" title="Twitter"  target="_blank" rel="noopener">𝕏</a>
                             <a href="https://github.com/marveeygoodlife" class="social-icon" title="GitHub"  target="_blank" rel="noopener">◐</a>
-                            <a href="https://www.linkedin.com/in/marvellous-ediagbonya/" class="social-icon" title="LinkedIn" target="_blank" rel="noopener">in</a>
+                            <a href="https://www.linkedin.com/in/marvellous-ediagbonya/"              class="social-icon" title="LinkedIn" target="_blank" rel="noopener">in</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm">
-                <div data-fs-success class="form-message form-message-success" >
-                    ✓ Message sent! I'll get back to you soon.
-                </div>
-                <div data-fs-error class="form-message form-message-error" ></div>
+            <div class="form-wrapper">
+            <form action="https://formspree.io/f/mredrolk"  class="contact-form" id="contact-form" method="post">
 
-                <div class="form-group">
+                <div class="form-group  form-half">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" data-fs-field required>
-                    <span data-fs-error="name" class="form-error"></span>
+                    <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" aria-describedby="name-error">
+                    <span id="name-error" class="form-error" aria-live="polite"></span>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group  form-half">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" data-fs-field required>
-                    <span data-fs-error="email" class="form-error"></span>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-describedby="email-error">
+                    <span id="email-error" class="form-error" aria-live="polite"></span>
                 </div>
+
+                <div class="form-group  form-half">
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="+234-7074-484-484" required autocomplete="tel" aria-describedby="telephone-error">
+                    <span id="telephone-error" class="form-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-half">
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Project inquiry" data-fs-field required>
-                    <span data-fs-error="subject" class="form-error"></span>
+                    <select name="subject" id="subject" aria-describedby="subject-error" >
+                        <option selected disabled>Select</option>
+                        <option value="inquiry">Inquiry</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="quote">Get quote</option>
+                        <option value="build">Build me a website</option>
+                    </select>
+                    <span id="subject-error" class="form-error" aria-live="polite"></span>
                 </div>
-                <div class="form-group">
+                </div>
+
+                <!-- textarea -->
+                <div class="form-group form-full">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project..." data-fs-field required></textarea>
-                    <span data-fs-error="message" class="form-error"></span>
+                    <textarea id="message" name="message" placeholder="Tell me about your project..." required aria-describedby="message-error"></textarea>
+                    <span id="message-error" class="form-error" aria-live="polite"></span>
                 </div>
+                <!-- submit button -->
+                 <div class="form-full">
                 <button type="submit" class="form-submit" data-fs-submit-btn>Send Message</button>
+                </div>
             </form>
+            </div>
         </div>
     </section>
 
@@ -489,12 +517,8 @@
     </footer>
     <button type="button" aria-label="scroll-to-top" class="scrollBtn" id="scrollBtn">&UpArrow;</button>
 
-    <!-- Form Handler -->
+    <!-- scripts -->
     <script src="form-handler.js"></script>
-
-    <!-- Formspree SDK -->
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
     <script src="script.js"></script>
 </body>
 </html>
