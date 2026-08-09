@@ -44,7 +44,6 @@ function validateName(input) {
         showError(input, "Name can only contains alphabelts")
         return false;
     } 
-   
     removeClass(input);
     clearError(input);
     return true;
@@ -119,22 +118,27 @@ form.addEventListener("submit", async (e) => {
         });
 
         const data = await response.json();
+
         if (response.ok) {
+            
              form.reset();
             showOverlay();
-            overlayP.textContent = "Thanks! submitted successfully, we typically respond between 1-2 business days. 😊";
-           
+            overlayP.textContent = "Thanks! submitted successfully, we will respond between 1-2 business days. 😊";
             closeOverlay();
+
         } else {
+
             showOverlay();
             overlayP.textContent = "Failed to send!, check your internet connection and try again.";
             closeOverlay();
+
         }
     } catch (error) {
+
         console.error("Error:", error.message);
         showOverlay();
-				overlayP.textContent =
-					"Error! failed to establish connection to server..";
-				closeOverlay();
+		overlayP.textContent ="Error! failed to establish connection to server..";
+        closeOverlay();
+        
     }
 })
