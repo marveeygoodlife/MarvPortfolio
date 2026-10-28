@@ -1283,6 +1283,9 @@
         /* mobile */
 
         @media (max-width: 576px) {
+            .cta-button{
+                display: none;
+            }
     .faq-item details {
         padding: 18px 0;
     }
