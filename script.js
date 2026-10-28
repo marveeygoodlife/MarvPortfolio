@@ -1,7 +1,7 @@
  
 "use strict";        
 const ul = document.querySelector('.nav-links');         
-        // ===== THEME TOGGLE =====
+        //  THEME TOGGLE 
         const themeToggle = document.querySelector('.theme-toggle');
         const html = document.documentElement;
 
@@ -18,7 +18,7 @@ const ul = document.querySelector('.nav-links');
             localStorage.setItem('theme', newTheme);
         });
 
-        // ===== SCROLL PROGRESS BAR =====
+        //  SCROLL PROGRESS BAR 
         const scrollProgress = document.querySelector('.scroll-progress');
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
@@ -27,7 +27,7 @@ const ul = document.querySelector('.nav-links');
             scrollProgress.style.width = scrollPercent + '%';
         });
 
-        // ===== NAVBAR SCROLL EFFECT =====
+        //  NAVBAR SCROLL EFFECT 
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -37,7 +37,7 @@ const ul = document.querySelector('.nav-links');
             }
         });
 
-        // ===== SMOOTH SCROLL & ACTIVE NAV LINK =====
+        //  SMOOTH SCROLL & ACTIVE NAV LINK 
         const navLinks = document.querySelectorAll('.nav-link');
 
         navLinks.forEach(link => {
@@ -52,7 +52,7 @@ const ul = document.querySelector('.nav-links');
                         targetSection.scrollIntoView({ behavior: "smooth" })
                     }
                 }, 100);
-            // ===== STYLE ACTIVE LINK =====
+            //  STYLE ACTIVE LINK 
 
                 navLinks.forEach(l => { l.style.color = ""; });
                 link.style.color = "var(--accent)";
@@ -60,17 +60,12 @@ const ul = document.querySelector('.nav-links');
             });
         });
              
-        // ===== CTA BUTTON SCROLLS TO CONTACT =====
+        //  CTA BUTTON SCROLLS TO CONTACT 
         document.querySelector('.cta-button').addEventListener('click', () => {
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ===== PRIMARY BUTTON SCROLLS TO PROJECTS =====
-        document.querySelector('.btn-primary').addEventListener('click', () => {
-            document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // ===== MOBILE MENU =====
+        //  MOBILE MENU 
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         if (mobileMenuToggle) {
             mobileMenuToggle.addEventListener('click', () => {
@@ -87,7 +82,7 @@ document.addEventListener("click", (e) => {
         ul.classList.remove("show-nav");
     }
 });
-// ===== Show SCROLL TO TOP BUTTON =====
+//  Show SCROLL TO TOP BUTTON 
 const scrollBtn = document.getElementById("scrollBtn");
 
 document.addEventListener("scroll", () => {
@@ -99,13 +94,13 @@ document.addEventListener("scroll", () => {
     };
 });
 
-//===== SCROLL TO TOP =====
+// SCROLL TO TOP 
 scrollBtn.addEventListener("click", () => {
     const body = document.documentElement;
     body.scrollIntoView({top: 0, behavior: "smooth"})
 })
 
-        // ===== INTERSECTION OBSERVER FOR SECTIONS =====
+        //  INTERSECTION OBSERVER FOR SECTIONS 
         const sectionObserverOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -100px 0px'
@@ -124,7 +119,7 @@ scrollBtn.addEventListener("click", () => {
             sectionObserver.observe(section);
         });
 
-        // ===== INTERSECTION OBSERVER FOR FADE-IN ELEMENTS =====
+        //  INTERSECTION OBSERVER FOR FADE-IN ELEMENTS 
         const elementObserverOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -147,13 +142,13 @@ scrollBtn.addEventListener("click", () => {
             elementObserver.observe(el);
         });
 
-        // ===== PREFER REDUCED MOTION =====
+        //  PREFER REDUCED MOTION 
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) {
             document.documentElement.style.scrollBehavior = 'auto';
 }
         
-    // ===== ACCESSIBILITY - KEYBOARD NAVIGATION =====
+    //  ACCESSIBILITY - KEYBOARD NAVIGATION 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 ul.classList.remove('show-nav');

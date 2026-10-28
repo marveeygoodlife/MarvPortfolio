@@ -1,7 +1,7 @@
 "use strict";
 /* get form element */
 const form = document.querySelector("#contact-form");
-const name = document.querySelector("#name");
+const fullName = document.querySelector("#name");
 const email = document.querySelector("#email");
 const telephone = document.querySelector("#telephone");
 const subject = document.querySelector("#subject");
@@ -90,7 +90,7 @@ function validateMessage(input) {
 }
 
 /* validate when input is out of focus */
-name.addEventListener("blur", (e) => validateName(e.target));
+fullName.addEventListener("blur", (e) => validateName(e.target));
 email.addEventListener("blur", (e) => validateEmail(e.target));
 telephone.addEventListener("blur", (e) => validateTel(e.target));
 message.addEventListener("blur", (e) => validateMessage(e.target));
@@ -102,7 +102,7 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const url = "https://formspree.io/f/mredrolk";
     const formData = new FormData(form);
-    const validName = validateName(name);
+    const validName = validateName(fullName);
     const validEmail = validateEmail(email);
     const validTelephone = validateTel(telephone);
     const validMessage = validateMessage(message);
