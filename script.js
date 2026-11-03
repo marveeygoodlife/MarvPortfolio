@@ -42,21 +42,10 @@ const ul = document.querySelector('.nav-links');
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                ul.classList.remove("show-nav");
-                const targetId = link.getAttribute('href');
-
-                setTimeout(() => {
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: "smooth" })
-                    }
-                }, 100);
+                 ul.classList.remove("show-nav");
             //  STYLE ACTIVE LINK 
-
                 navLinks.forEach(l => { l.style.color = ""; });
                 link.style.color = "var(--accent)";
-               
             });
         });
              
@@ -83,7 +72,7 @@ document.addEventListener("click", (e) => {
     }
 });
 //  Show SCROLL TO TOP BUTTON 
-const scrollBtn = document.getElementById("scrollBtn");
+const scrollBtn = document.querySelector(".scrollBtn");
 
 document.addEventListener("scroll", () => {
     const scrollHeight = window.scrollY;
@@ -95,10 +84,13 @@ document.addEventListener("scroll", () => {
 });
 
 // SCROLL TO TOP 
-scrollBtn.addEventListener("click", () => {
-    const body = document.documentElement;
-    body.scrollIntoView({top: 0, behavior: "smooth"})
-})
+if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+			const body = document.documentElement;
+			body.scrollIntoView({ top: 0, behavior: "smooth" });
+		});
+
+}
 
         //  INTERSECTION OBSERVER FOR SECTIONS 
         const sectionObserverOptions = {

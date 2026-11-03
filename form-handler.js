@@ -33,15 +33,15 @@ function closeOverlay() {
         overlay.classList.remove("show-overlay");
     }, 5000);
 }
-/* validate inputs */
 
+/* validate inputs */
 function validateName(input) {
     const nameReg = /^[A-Za-z][A-Za-z\s'-]{1,}$/;
     const nameVal = input.value.trim();
 
     if (!nameReg.test(nameVal)) {
         addClass(input );
-        showError(input, "Name can only contains alphabelts")
+        showError(input, "Name can only contains alphabets")
         return false;
     } 
     removeClass(input);
